@@ -1,44 +1,28 @@
-// script.js
-
-// Draggable functionality for riots and causes
-const riots = document.querySelectorAll('.draggable');
-const causes = document.querySelectorAll('.cause');
-const years = document.querySelectorAll('.year');
-const matchingBoxes = document.querySelectorAll('.matching-box');
-
-// Allow the dragging functionality for each item
-riots.forEach(riot => {
-    riot.addEventListener('dragstart', dragStart);
-});
-causes.forEach(cause => {
-    cause.addEventListener('dragstart', dragStart);
-});
-
-// Prevent default for drop area
-matchingBoxes.forEach(box => {
-    box.addEventListener('dragover', dragOver);
-    box.addEventListener('drop', drop);
-});
-
-years.forEach(year => {
-    year.addEventListener('dragover', dragOver);
-    year.addEventListener('drop', drop);
-});
-
-function dragStart(e) {
-    e.dataTransfer.setData('text', e.target.id);
+function allowDrop(event) {
+  event.preventDefault();
+  const dropBox = event.target;
+  dropBox.classList.add("hover");
 }
 
-function dragOver(e) {
-    e.preventDefault();
+function drop(event) {
+  event.preventDefault();
+  const dropBox = event.target;
+  const draggedElement = document.querySelector(".dragging");
+
+  dropBox.classList.remove("hover");
+
+  if (draggedElement) {
+    dropBox.textContent = draggedElement.textContent;
+    draggedElement.style.display = "none";
+  }
 }
 
-function drop(e) {
-    const droppedItem = document.getElementById(e.dataTransfer.getData('text'));
-    e.target.appendChild(droppedItem);
+function drag(event) {
+  event.target.classList.add("dragging");
 }
 
-// Handle the screenshot prompt
-document.getElementById('submitBtn').addEventListener('click', () => {
-    alert('Take a screenshot of your answers and upload to Padlet!');
+document.addEventListener("dragend", (event) => {
+  const draggedElement = event.target;
+  draggedElement.classList.remove("dragging");
+  draggedElement.style.display = "block";
 });
