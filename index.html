@@ -1,63 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Singapore Riots</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive History Learning</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-<div class="container">
-    <h1>Interactive Learning: The Four Singapore Riots</h1>
-
-    <!-- Step 1: Match the Riots to the Correct Year -->
-    <div class="section">
-        <h2>Step 1: Match the Riots to the Correct Year</h2>
-        <div class="years">
-            <div class="year" id="year1950">1950</div>
-            <div class="year" id="year1951">1951</div>
-            <div class="year" id="year1953">1953</div>
-            <div class="year" id="year1955">1955</div>
-        </div>
-        
-        <div class="riots">
-            <div class="draggable" id="riot1" draggable="true">Maria Hertogh Riots</div>
-            <div class="draggable" id="riot2" draggable="true">Hock Lee Bus Riots</div>
-            <div class="draggable" id="riot3" draggable="true">Anti-National Service Riots</div>
-            <div class="draggable" id="riot4" draggable="true">Chinese Middle School Riots</div>
-        </div>
+  <div class="container">
+    <h1>Drag the Events to Order Them by Importance</h1>
+    <div class="line">
+      <span class="label left">Most Important</span>
+      <div class="line-inner"></div>
+      <span class="label right">Least Important</span>
     </div>
-
-    <!-- Step 2: Match the Causes to Each Riot -->
-    <div class="section">
-        <h2>Step 2: Match the Causes to Each Riot</h2>
-        <div class="causes">
-            <div class="cause" id="cause1" draggable="true">Upset over perceived racial and religious biases</div>
-            <div class="cause" id="cause2" draggable="true">Upset over the need to serve NS, and disrupting their studies</div>
-            <div class="cause" id="cause3" draggable="true">Belief in communist ideals and supporting trade unions</div>
-            <div class="cause" id="cause4" draggable="true">Upset over workers' rights</div>
-        </div>
-
-        <div class="cause-matching">
-            <div class="matching-box" id="match1">Maria Hertogh Riots</div>
-            <div class="matching-box" id="match2">Hock Lee Bus Riots</div>
-            <div class="matching-box" id="match3">Anti-National Service Riots</div>
-            <div class="matching-box" id="match4">Chinese Middle School Riots</div>
-        </div>
-    </div>
-
-    <!-- Step 3: Reflection Box -->
-    <div class="section">
-        <h2>Step 3: Reflection</h2>
-        <textarea placeholder="Type your explanation here" rows="6"></textarea>
-    </div>
-
-    <div class="submit">
-        <button id="submitBtn">Take Screenshot & Upload to Padlet</button>
-    </div>
-</div>
-
-<script src="script.js"></script>
-</body>
-</html>
+    
+    <div class="boxes">
+      <div class="box" id="army" draggable="true" ondragstart="drag(event)">The Army and Oath of Allegiance</div>
+      <div class="box" id="gleieishetung" draggable="true" ondragstart="drag(event)">Gleieishetung</div>
+      <div class="box" id="night" draggable="true" ondragstart="drag(event)">Night of the Long Knives</div
